@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
 import Createuser from "./pages/Createuser";
+import NewUserEmail from "./pages/NewUserEmail";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   { path: "/createUser", element: <Createuser /> },
+  { path: "/createUserEmail", element: <NewUserEmail /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

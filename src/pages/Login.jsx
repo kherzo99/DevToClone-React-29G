@@ -43,7 +43,7 @@ export default function Login() {
           <p> rayita</p>
         </div>
         <p>
-          New to DEV Community?{" "}
+          New to DEV Community?
           <Link className={clsx("text-purple-600")} to="/createUser">
             Create account.
           </Link>

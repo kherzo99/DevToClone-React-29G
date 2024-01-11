@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 export default function Createuser() {
   return (
@@ -23,7 +24,9 @@ export default function Createuser() {
           <button>Sign up with Forem</button>
           <button>Sign up with GitHub</button>
           <button>Sign up with Twitter</button>
-          <button>Sign up with Email</button>
+          <Link className={clsx("text-purple-800")} to="/createUserEmail">
+            Sign up with Email
+          </Link>
           <div></div>
         </div>
       </main>
