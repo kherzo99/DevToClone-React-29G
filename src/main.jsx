@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Createuser from "./pages/Createuser";
 import NewUserEmail from "./pages/NewUserEmail";
+import PostView from "./pages/PostView";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   },
   { path: "/createUser", element: <Createuser /> },
   { path: "/createUserEmail", element: <NewUserEmail /> },
+  { path: "/viewPost/:id", element: <PostView /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

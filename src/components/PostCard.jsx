@@ -1,14 +1,16 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function PostCard() {
   const [posts, setPosts] = useState([]);
-
-  fetch("http://localhost:3001/posts")
-    .then((response) => response.json())
-    .then((data) => {
-      setPosts(data.data);
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:3001/posts")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data.data);
+      });
+  }, []);
 
   return (
     <>
@@ -43,10 +45,11 @@ export default function PostCard() {
                 <div className="pl-10">
                   <a
                     className="text-3xl text-[#171717] font-bold"
-                    href="/postdetail"
+                    href="/viewPost"
                   >
                     {post.title}
                   </a>
+                  <Link to={`/viewPost/${post._id}`}>{post.title}</Link>
                   <div className="pt-2 flex">
                     <a
                       href=""
