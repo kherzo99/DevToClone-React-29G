@@ -1,7 +1,32 @@
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { register, handleSubmit, setError } = useForm();
+
+  async function onSubmit(data) {
+    const response = await fetch("http://localhost:3001/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const responseData = await response.json();
+    if (responseData?.token) {
+      localStorage.setItem("token", responseData.token);
+      navigate("/");
+    } else {
+      alert("Datos invalidos");
+    }
+  }
+
   return (
     <main
       className={clsx(
@@ -26,28 +51,42 @@ export default function Login() {
         <div>
           <p>or</p>
         </div>
-        <p>Email</p>
-        <input type="text" />
-        <p>Password</p>
-        <input type="password" />
-        <div>
-          <p>Rememeber Me</p>
-          <a href="">Forgot Password?</a>
-        </div>
-        <button>Login</button>
-        <p>
-          By signing in, you are agreeing to our privacy policy, terms of use
-          and code of conduct.
-        </p>
-        <div>
-          <p> rayita</p>
-        </div>
-        <p>
-          New to DEV Community?
-          <Link className={clsx("text-purple-600")} to="/createUser">
-            Create account.
-          </Link>
-        </p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <p>Email</p>
+          <input
+            className="text-black"
+            type="text"
+            {...register("email", {
+              required: { value: true },
+            })}
+          />
+          <p>Password</p>
+          <input
+            className="text-black"
+            type="password"
+            {...register("password", {
+              required: { value: true },
+            })}
+          />
+          <div>
+            <p>Rememeber Me</p>
+            <a href="">Forgot Password?</a>
+          </div>
+          <button>Login</button>
+          <p>
+            By signing in, you are agreeing to our privacy policy, terms of use
+            and code of conduct.
+          </p>
+          <div>
+            <p> rayita</p>
+          </div>
+          <p>
+            New to DEV Community?
+            <Link className={clsx("text-purple-600")} to="/createUser">
+              Create account.
+            </Link>
+          </p>
+        </form>
       </div>
     </main>
   );
