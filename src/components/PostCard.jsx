@@ -19,7 +19,7 @@ export default function PostCard() {
         {posts.map((post) => {
           return (
             <div
-              key={`post-${post.id}`}
+              key={`posts`}
               className={clsx(
                 "flex flex-col items-center border border-yellow-500"
               )}

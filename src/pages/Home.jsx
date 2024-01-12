@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           </aside>
           <section className={clsx("col-span-7", "border border-red-500")}>
             <h1>Main section</h1>
+            <Link to="/createPost">Create Post</Link>
             <PostCard />
           </section>
           <section className={clsx("col-span-3", "border border-red-500")}>
