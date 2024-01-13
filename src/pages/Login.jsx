@@ -60,30 +60,23 @@ export default function Login() {
         <p className={clsx("text-black/60")}>
           DEV Community is a community of 1,231,240 amazing developers
         </p>
-        <p>Ola</p>
-        <p>test</p>
-        <LoginButtons />
-        <div className="relative">
-          {/* Elemento base */}
-          <div className="bg-blue-500 h-24 w-24 absolute top-0 left-0">
-            {/* Contenido del elemento base */}
-          </div>
 
-          {/* Elemento superpuesto */}
-          <div className="bg-red-500 h-16 w-16 absolute top-4 left-4">
-            {/* Contenido del elemento superpuesto */}
-          </div>
+        <LoginButtons />
+
+        <div className={clsx("font-bold")}>
+          <h1 className={clsx("font-bold")}>or</h1>
         </div>
-        <div>
-          <p>or</p>
-        </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+
+        <form
+          className={clsx("flex flex-col", "items-start", "gap-3", "w-5/6")}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           {errors.root && (
             <p
               className={clsx(
                 "bg-red-500/50",
                 "text-white",
-                "w-60",
+                "w-full",
                 "rounded-md",
                 "p-1",
                 "border border-red-500"
@@ -94,7 +87,13 @@ export default function Login() {
           )}
           <p>Email</p>
           <input
-            className="text-black"
+            className={clsx(
+              "border border-black/20",
+              "rounded-md",
+              "p-1",
+              "w-full",
+              "h-10"
+            )}
             type="text"
             id="email"
             {...register("email", {
@@ -108,7 +107,14 @@ export default function Login() {
           )}
           <p>Password</p>
           <input
-            className="text-black"
+            className={clsx(
+              "border border-black/20",
+              "rounded-md",
+              "p-1",
+              "w-full",
+              "h-10"
+              // "hover: border border-[#4925e8]"
+            )}
             type="password"
             id="password"
             {...register("password", {
@@ -120,24 +126,75 @@ export default function Login() {
               {errors.password?.message}
             </p>
           )}
-          <div>
-            <p>Rememeber Me</p>
-            <a href="">Forgot Password?</a>
+          <div
+            className={clsx(
+              "bg-white",
+              "text-black",
+              "flex",
+              "justify-between"
+            )}
+          >
+            <div className={clsx("flex", "justify-between")}>
+              <input className={clsx("")} type="checkbox" />
+              <p className={clsx("")}>Remember Me</p>
+            </div>
+            <a className={clsx("text-[#522bec]", "px-24")} href="">
+              Forgot Password?
+            </a>
           </div>
-          <button>Login</button>
-          <p>
-            By signing in, you are agreeing to our privacy policy, terms of use
-            and code of conduct.
-          </p>
-          <div>
-            <p> rayita</p>
+          <button
+            className={clsx(
+              "border border-black/20",
+              "p-2",
+              "rounded-md",
+              "w-full",
+              "mt-5",
+              "bg-[#4925e8]",
+              "text-white",
+              "hover:bg-[#391fb9]"
+            )}
+          >
+            Log in
+          </button>
+          <div className={clsx("w-full", "flex", "justify-center")}>
+            <p
+              className={clsx(
+                "w-5/6",
+                "flex",
+                "justify-center",
+                "text-sm",
+                "text-gray-400",
+                "italic"
+              )}
+            >
+              By signing in, you are agreeing to our privacy policy, terms of
+              use and code of conduct.
+            </p>
           </div>
-          <p>
-            New to DEV Community?
-            <Link className={clsx("text-purple-600")} to="/createUser">
-              Create account.
-            </Link>
-          </p>
+          <div className={clsx("pt-5")}>
+            <svg
+              className="w-full h-1 items-center"
+              viewBox="0 0 24 1"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="0"
+                y1="0"
+                x2="100%"
+                y2="0"
+                stroke="gray"
+                strokeWidth="0.5"
+              />
+            </svg>
+          </div>
+          <div className={clsx("p-10", "flex", "justify-between")}>
+            <p className={clsx("px-5")}>
+              New to DEV Community?
+              <Link className={clsx("text-[#522bec]", "px-2")} to="/createUser">
+                Create account.
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     </main>
