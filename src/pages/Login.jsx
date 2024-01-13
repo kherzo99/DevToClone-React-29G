@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import appleIcon from "/src/assets/apple.svg";
+import foremIcon from "/src/assets/banco.svg";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -35,24 +37,87 @@ export default function Login() {
   return (
     <main
       className={clsx(
-        "bg-black/50",
-        "text-white",
+        "bg-white",
+        "text-black",
         "flex flex-col",
         "justify-center, items-center"
       )}
     >
-      <div className={clsx("flex flex-col justify-center items-center")}>
+      <div
+        className={clsx(
+          "flex flex-col",
+          "justify-center",
+          "items-center",
+          "gap-3",
+          "pt-10"
+        )}
+      >
         <img
           className={clsx("w-16")}
           src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
           alt="DevLogo"
         />
-        <h1>Join the DEV Community</h1>
-        <p>DEV Community is a community of 1,231,240 amazing developers</p>
-        <button>Continue with Apple</button>
-        <button>Continue with Forem</button>
-        <button>Continue with GitHub</button>
-        <button>Continue with Twitter</button>
+        <h1 className={clsx("text-3xl font-bold")}>Join the DEV Community</h1>
+        <p className={clsx("text-black/60")}>
+          DEV Community is a community of 1,231,240 amazing developers
+        </p>
+        <button
+          className={clsx(
+            "border border-black/20",
+            "p-3",
+            "w-5/6",
+            "rounded-md",
+            "flex",
+            "space-x-40",
+            "hover:bg-gray-300/10"
+          )}
+        >
+          <img className={clsx("w-5")} src={appleIcon} alt="" />
+          <p className={clsx("text-sm")}>Continue with Apple</p>
+        </button>
+        <button
+          className={clsx(
+            "border border-black/20",
+            "p-3",
+            "w-5/6",
+            "rounded-md",
+            "flex",
+            "space-x-40",
+            "hover:bg-gray-300/10"
+          )}
+        >
+          <img className={clsx("w-5")} src={foremIcon} alt="" />
+          <p className={clsx("text-sm")}>Continue with Forem</p>
+        </button>
+        <button
+          className={clsx(
+            "border border-black/20",
+            "p-3",
+            "w-5/6",
+            "rounded-md",
+            "flex",
+            "space-x-40",
+            "hover:bg-gray-300/10"
+          )}
+        >
+          <img className={clsx("w-5")} src={foremIcon} alt="" />
+          <p className={clsx("text-sm")}>Continue with GitHub</p>
+        </button>
+        <button
+          className={clsx(
+            "border border-black/20",
+            "p-3",
+            "w-5/6",
+            "rounded-md",
+            "flex",
+            "space-x-40",
+            "hover:bg-gray-300/10"
+          )}
+        >
+          <img className={clsx("w-5")} src={foremIcon} alt="" />
+          <p className={clsx("text-sm")}>Continue with Twitter</p>
+        </button>
+
         <div>
           <p>or</p>
         </div>
