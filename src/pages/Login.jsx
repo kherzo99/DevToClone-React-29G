@@ -61,6 +61,7 @@ export default function Login() {
           DEV Community is a community of 1,231,240 amazing developers
         </p>
         <p>Ola</p>
+        <p>test</p>
         <LoginButtons />
         <div className="relative">
           {/* Elemento base */}
