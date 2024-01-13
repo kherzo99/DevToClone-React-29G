@@ -2,7 +2,12 @@ import clsx from "clsx";
 import { useForm } from "react-hook-form";
 
 export default function NewUserEmail() {
-  const { register, handleSubmit, errors } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    // setError,
+  } = useForm();
 
   async function onSubmit(data) {
     const response = await fetch("http://localhost:3001/users", {
@@ -12,6 +17,7 @@ export default function NewUserEmail() {
         lastName: data.lastName,
         email: data.email,
         password: data.password,
+        userImg: data.userImg,
       }),
       headers: { "Content-Type": "application/json" },
     });
@@ -21,6 +27,7 @@ export default function NewUserEmail() {
       console.log("User not created, try again.");
     }
   }
+  // setError("root", { message: "Invalid Data" });
   return (
     <>
       <div className={clsx("flex justify-center")}>
@@ -33,16 +40,34 @@ export default function NewUserEmail() {
           )}
         >
           <h1>Create your account</h1>
+          <p>Profile Image</p>
+          <input
+            className={clsx("border border-gray-700")}
+            type="text"
+            id="userImg"
+            {...register("userImg", {
+              required: { value: true, message: "Profile picture is required" },
+            })}
+          />
+          {errors.name && (
+            <p className={clsx("text-red-700", "text-xs")}>
+              {errors.userImg?.message}
+            </p>
+          )}
           <p>Name</p>
           <input
             className={clsx("border border-gray-700")}
             type="text"
-            name="name"
             {...register("name", {
               required: { value: true, message: "Name is required" },
             })}
           />
-          {/* {errors.name && <p>{errors.name?.message}</p>} */}
+          {errors.name && (
+            <p className={clsx("text-red-700", "text-xs")}>
+              {errors.name?.message}
+            </p>
+          )}
+
           <p>Last Name</p>
           <input
             className={clsx("border border-gray-700")}
@@ -51,7 +76,11 @@ export default function NewUserEmail() {
               required: { value: true, message: "Last name is required" },
             })}
           />
-          {/* {errors.lastName && <p>{errors.lastName?.message}</p>} */}
+          {errors.lastName && (
+            <p className={clsx("text-red-700", "text-xs")}>
+              {errors.lastName?.message}
+            </p>
+          )}
           <p>Email</p>
           <input
             className={clsx("border border-gray-700")}
@@ -60,7 +89,11 @@ export default function NewUserEmail() {
               required: { value: true, message: "Email is required" },
             })}
           />
-          {/* {errors.email && <p>{errors.email?.message}</p>} */}
+          {errors.email && (
+            <p className={clsx("text-red-700", "text-xs")}>
+              {errors.email?.message}
+            </p>
+          )}
           <p>Password</p>
           <input
             className={clsx("border border-gray-700")}
@@ -69,7 +102,11 @@ export default function NewUserEmail() {
               required: { value: true, message: "Password is required" },
             })}
           />
-          {/* {errors.password && <p>{errors.password?.message}</p>} */}
+          {errors.password && (
+            <p className={clsx("text-red-700", "text-xs")}>
+              {errors.password?.message}
+            </p>
+          )}
           <input
             className={clsx("bg-purple-600 text-white rounded-md p-1 m-1")}
             type="submit"
