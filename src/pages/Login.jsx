@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import appleIcon from "/src/assets/apple.svg";
-import foremIcon from "/src/assets/banco.svg";
+import LoginButtons from "../components/LoginButtons";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -61,63 +60,18 @@ export default function Login() {
         <p className={clsx("text-black/60")}>
           DEV Community is a community of 1,231,240 amazing developers
         </p>
-        <button
-          className={clsx(
-            "border border-black/20",
-            "p-3",
-            "w-5/6",
-            "rounded-md",
-            "flex",
-            "space-x-40",
-            "hover:bg-gray-300/10"
-          )}
-        >
-          <img className={clsx("w-5")} src={appleIcon} alt="" />
-          <p className={clsx("text-sm")}>Continue with Apple</p>
-        </button>
-        <button
-          className={clsx(
-            "border border-black/20",
-            "p-3",
-            "w-5/6",
-            "rounded-md",
-            "flex",
-            "space-x-40",
-            "hover:bg-gray-300/10"
-          )}
-        >
-          <img className={clsx("w-5")} src={foremIcon} alt="" />
-          <p className={clsx("text-sm")}>Continue with Forem</p>
-        </button>
-        <button
-          className={clsx(
-            "border border-black/20",
-            "p-3",
-            "w-5/6",
-            "rounded-md",
-            "flex",
-            "space-x-40",
-            "hover:bg-gray-300/10"
-          )}
-        >
-          <img className={clsx("w-5")} src={foremIcon} alt="" />
-          <p className={clsx("text-sm")}>Continue with GitHub</p>
-        </button>
-        <button
-          className={clsx(
-            "border border-black/20",
-            "p-3",
-            "w-5/6",
-            "rounded-md",
-            "flex",
-            "space-x-40",
-            "hover:bg-gray-300/10"
-          )}
-        >
-          <img className={clsx("w-5")} src={foremIcon} alt="" />
-          <p className={clsx("text-sm")}>Continue with Twitter</p>
-        </button>
+        <LoginButtons />
+        <div className="relative">
+          {/* Elemento base */}
+          <div className="bg-blue-500 h-24 w-24 absolute top-0 left-0">
+            {/* Contenido del elemento base */}
+          </div>
 
+          {/* Elemento superpuesto */}
+          <div className="bg-red-500 h-16 w-16 absolute top-4 left-4">
+            {/* Contenido del elemento superpuesto */}
+          </div>
+        </div>
         <div>
           <p>or</p>
         </div>
