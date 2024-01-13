@@ -60,6 +60,7 @@ export default function Login() {
         <p className={clsx("text-black/60")}>
           DEV Community is a community of 1,231,240 amazing developers
         </p>
+        <p>Ola</p>
         <LoginButtons />
         <div className="relative">
           {/* Elemento base */}
