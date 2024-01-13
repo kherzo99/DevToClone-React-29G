@@ -4,7 +4,12 @@ import { useForm } from "react-hook-form";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { register, handleSubmit, setError } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm();
 
   async function onSubmit(data) {
     const response = await fetch("http://localhost:3001/login", {
@@ -23,7 +28,7 @@ export default function Login() {
       localStorage.setItem("token", responseData.token);
       navigate("/");
     } else {
-      alert("Datos invalidos");
+      setError("root", { message: "Invalid data, try again." });
     }
   }
 
@@ -52,22 +57,48 @@ export default function Login() {
           <p>or</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
+          {errors.root && (
+            <p
+              className={clsx(
+                "bg-red-500/50",
+                "text-white",
+                "w-60",
+                "rounded-md",
+                "p-1",
+                "border border-red-500"
+              )}
+            >
+              {errors.root?.message}
+            </p>
+          )}
           <p>Email</p>
           <input
             className="text-black"
             type="text"
+            id="email"
             {...register("email", {
-              required: { value: true },
+              required: { value: true, message: "Email is required" },
             })}
           />
+          {errors.email && (
+            <p className={clsx("text-red-500", "text-xs")}>
+              {errors.email?.message}
+            </p>
+          )}
           <p>Password</p>
           <input
             className="text-black"
             type="password"
+            id="password"
             {...register("password", {
-              required: { value: true },
+              required: { value: true, message: "Password is required" },
             })}
           />
+          {errors.password && (
+            <p className={clsx("text-red-500", "text-xs")}>
+              {errors.password?.message}
+            </p>
+          )}
           <div>
             <p>Rememeber Me</p>
             <a href="">Forgot Password?</a>
