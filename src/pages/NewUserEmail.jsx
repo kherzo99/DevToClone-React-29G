@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
+// import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function NewUserEmail() {
+  // const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,27 +25,60 @@ export default function NewUserEmail() {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      console.log("User created succesfully!");
+      alert("User created succesfully!");
     } else {
-      console.log("User not created, try again.");
+      alert("User not created, try again.");
     }
   }
   // setError("root", { message: "Invalid Data" });
   return (
     <>
-      <div className={clsx("flex justify-center")}>
+      <main
+        className={clsx(
+          "bg-white",
+          "text-black",
+          "flex flex-col",
+          "justify-center, items-center"
+        )}
+      >
+        <div
+          className={clsx(
+            "flex flex-col",
+            "justify-center",
+            "items-center",
+            "gap-3",
+            "pt-10"
+          )}
+        >
+          <img
+            className={clsx("w-16")}
+            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
+            alt="DevLogo"
+          />
+          <h1 className={clsx("text-3xl font-bold")}>Join the DEV Community</h1>
+          <p className={clsx("text-black/60")}>
+            DEV Community is a community of 1,231,240 amazing developers
+          </p>
+        </div>
+      </main>
+
+      <div className={clsx("flex justify-center", "pt-10", "pb-10")}>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className={clsx(
-            "bg-black text-gray-400",
+            " text-black",
             "flex flex-col justify-center",
-            "w-44"
+            "border border-black/20",
+            "rounded-md",
+            "w-3/6",
+            "p-5",
+            "gap-3"
           )}
         >
-          <h1>Create your account</h1>
+          <h1 className={clsx("text-lg", "font-bold")}>Create your account</h1>
           <p>Profile Image</p>
           <input
-            className={clsx("border border-gray-700")}
+            className={clsx("border border-black/20", "p-2", "rounded-md")}
             type="text"
             id="userImg"
             {...register("userImg", {
@@ -54,9 +90,9 @@ export default function NewUserEmail() {
               {errors.userImg?.message}
             </p>
           )}
-          <p>Name</p>
+          <p>Name *</p>
           <input
-            className={clsx("border border-gray-700")}
+            className={clsx("border border-black/20", "p-2", "rounded-md")}
             type="text"
             {...register("name", {
               required: { value: true, message: "Name is required" },
@@ -68,9 +104,9 @@ export default function NewUserEmail() {
             </p>
           )}
 
-          <p>Last Name</p>
+          <p>Last Name*</p>
           <input
-            className={clsx("border border-gray-700")}
+            className={clsx("border border-black/20", "p-2", "rounded-md")}
             type="text"
             {...register("lastName", {
               required: { value: true, message: "Last name is required" },
@@ -81,9 +117,9 @@ export default function NewUserEmail() {
               {errors.lastName?.message}
             </p>
           )}
-          <p>Email</p>
+          <p>Email*</p>
           <input
-            className={clsx("border border-gray-700")}
+            className={clsx("border border-black/20", "p-2", "rounded-md")}
             type="text"
             {...register("email", {
               required: { value: true, message: "Email is required" },
@@ -94,9 +130,9 @@ export default function NewUserEmail() {
               {errors.email?.message}
             </p>
           )}
-          <p>Password</p>
+          <p>Password*</p>
           <input
-            className={clsx("border border-gray-700")}
+            className={clsx("border border-black/20", "p-2", "rounded-md")}
             type="password"
             {...register("password", {
               required: { value: true, message: "Password is required" },
@@ -108,7 +144,8 @@ export default function NewUserEmail() {
             </p>
           )}
           <input
-            className={clsx("bg-purple-600 text-white rounded-md p-1 m-1")}
+            // onClick={() => navigate("/login")}
+            className={clsx("bg-purple-600 text-white rounded-md p-1 m-1 w-32")}
             type="submit"
             value="Sign up"
           />
