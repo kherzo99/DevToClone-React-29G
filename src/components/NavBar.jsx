@@ -13,20 +13,10 @@ export default function NavBar() {
     setToken(storedToken);
   }, []);
 
-  return (
-    <div className="">
-      {!token ? (
-        // Si hay un token, muestra el componente1
-        <Componente1 />
-      ) : (
-        // Si no hay un token, muestra el componente2
-        <Componente2 />
-      )}
-    </div>
-  );
+  return <div className="">{!token ? <Navbar /> : <NavBarwUser />}</div>;
 }
 
-const Componente1 = () => {
+const Navbar = () => {
   const navigate = useNavigate();
   return (
     <nav
@@ -107,7 +97,7 @@ const Componente1 = () => {
   );
 };
 
-const Componente2 = () => {
+const NavBarwUser = () => {
   // const [user, setUser] = useState({});
   const navigate = useNavigate();
 
