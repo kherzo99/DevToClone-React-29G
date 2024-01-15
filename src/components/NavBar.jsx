@@ -1,5 +1,9 @@
-import devIcon from "/src/assets/dev-to-svgrepo-com.svg";
+import clsx from "clsx";
 import { useState, useEffect } from "react";
+import devToLogo from "/src/assets/devTologo.png";
+import searchLogo from "/src/assets/busqueda.svg";
+import bellIcon from "/src/assets/campana.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const [token, setToken] = useState([]);
@@ -11,7 +15,7 @@ export default function NavBar() {
 
   return (
     <div className="">
-      {token ? (
+      {!token ? (
         // Si hay un token, muestra el componente1
         <Componente1 />
       ) : (
@@ -23,57 +27,168 @@ export default function NavBar() {
 }
 
 const Componente1 = () => {
+  const navigate = useNavigate();
   return (
-    <nav className="bg-[#18181B] h-12 flex flex-row gap-5 p-2 justify-between">
-      <div className="flex">
-        <img className="px-2" src={devIcon} alt="logo-twitch" />
-        <div>
-          <p className="px-2 text-base font-bold hover:text-[#CA85FF] hover:cursor-pointer">
-            Explorar
-          </p>
-        </div>
-        <div className="px-2 hover:bg-[#35343C] w-7 hover:rounded-md grid justify-items-center">
-          <a className="" href="">
-            <i className="fa-solid fa-ellipsis-vertical"></i>
-          </a>
-        </div>
+    <nav
+      className={clsx(
+        "bg-white",
+        "h-12",
+        "flex flex-row",
+        "gap-5",
+        "p-2",
+        "justify-between"
+      )}
+    >
+      <div className={clsx("flex")}>
+        <img className={clsx("w-13", "h-9")} src={devToLogo} alt="devTo-logo" />
       </div>
 
-      <div className="">
+      <div
+        className={clsx(
+          "flex",
+          "border",
+          "border-black/20",
+          "p-1",
+          "rounded-md"
+        )}
+      >
         <input
-          className="border border-[#67676B] placeholder-slate-400 rounded-md w-60 bg-[#18181B]"
-          type=""
-          name=""
-          id=""
+          className={clsx("placeholder-slate-400", "rounded-md", "w-60", "p-1")}
           placeholder="Search..."
         />
-        <button className="w-12 rounded-md bg-[#2F2E36]">
-          <i className="fa-solid fa-magnifying-glass"></i>
+
+        <button className={clsx("w-6", "hover:bg-gray-500")}>
+          <img className={clsx("w-10")} src={searchLogo} alt="" />
         </button>
       </div>
-      <div className="flex">
-        <div className=" hover:bg-[#35343C] w-7 hover:rounded-md grid justify-items-center">
-          <a className="" href="">
-            <i className="fa-regular fa-envelope-open"></i>
-          </a>
-        </div>
-        <button className="px-2 m-1 bg-[#2F2E36] rounded-md">Log In</button>
-        <button className="px-2 m-1 bg-[#A200FF] rounded-md">Register</button>
+      <div className={clsx("flex")}>
+        <button
+          onClick={() => {
+            navigate("/login");
+          }}
+          className={clsx(
+            "px-2",
+            "m-1",
+            "hover:bg-[#ece9fd]",
+            "rounded-md",
+            "text-black/60",
+            "hover:text-[#391fb9]",
+            "hover:underline"
+          )}
+        >
+          Log In
+        </button>
+        <button
+          onClick={() => {
+            navigate("/createUser");
+          }}
+          className={clsx(
+            "px-2",
+            "m-1",
+            "border border-[#391fb9]",
+            "text-[#391fb9]",
+            "hover:bg-[#391fb9]",
+            "rounded-md",
+            "text-black/60",
+            "hover:text-white",
+            "hover:underline"
+          )}
+        >
+          Create Account
+        </button>
 
-        <div className="hover:bg-[#35343C] w-7 hover:rounded-md grid justify-items-center">
-          <a className="" href="">
-            <i className="fa-regular fa-user"></i>
-          </a>
-        </div>
+        <div
+          className={clsx(
+            "hover:bg-[#35343C] w-7 hover:rounded-md grid justify-items-center"
+          )}
+        ></div>
       </div>
     </nav>
   );
 };
 
 const Componente2 = () => {
+  // const [user, setUser] = useState({});
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/users/${user}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setUser(data.data);
+  //       console.log("esta es la data de users", data.data);
+  //     });
+  // }, [user]);
+
   return (
-    <div className="p-4 bg-red-200 rounded">
-      <p>Este es el componente 2 que se muestra si no hay un token.</p>
-    </div>
+    <nav
+      key={`user`}
+      className={clsx(
+        "bg-white",
+        "h-12",
+        "flex flex-row",
+        "gap-5",
+        "p-2",
+        "justify-between"
+      )}
+    >
+      <div className={clsx("flex")}>
+        <img className={clsx("w-13", "h-9")} src={devToLogo} alt="devTo-logo" />
+      </div>
+
+      <div
+        className={clsx(
+          "flex",
+          "border",
+          "border-black/20",
+          "p-1",
+          "rounded-md"
+        )}
+      >
+        <input
+          className={clsx("placeholder-slate-400", "rounded-md", "w-60", "p-1")}
+          placeholder="Search..."
+        />
+
+        <button className={clsx("w-6", "hover:bg-gray-500")}>
+          <img className={clsx("w-10")} src={searchLogo} alt="" />
+        </button>
+      </div>
+      <div className={clsx("flex", "gap-3")}>
+        <button
+          onClick={() => {
+            navigate("/createPost");
+          }}
+          className={clsx(
+            "px-2",
+            "m-1",
+            "border border-[#391fb9]",
+            "text-[#391fb9]",
+            "hover:bg-[#391fb9]",
+            "rounded-md",
+            "text-black/60",
+            "hover:text-white",
+            "hover:underline"
+          )}
+        >
+          Create Post
+        </button>
+
+        <div className={clsx("grid", "justify-items-center")}>
+          <img
+            className={clsx("w-6", "hover:bg-[#391fb9]", "rounded-md")}
+            src={bellIcon}
+            alt=""
+          />
+        </div>
+        <div className={clsx("grid", "justify-items-center")}>
+          <img
+            className={clsx("w-6", "hover:bg-[#391fb9]", "rounded-full")}
+            src=""
+            alt="userImg"
+          />
+        </div>
+      </div>
+    </nav>
   );
 };
