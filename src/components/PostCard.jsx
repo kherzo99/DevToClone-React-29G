@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import commentIcon from "/src/assets/puntos-de-comentario.svg";
+import bookMark from "/src/assets/libro-marcador.svg";
 
 export default function PostCard() {
   const [posts, setPosts] = useState([]);
@@ -14,14 +16,20 @@ export default function PostCard() {
 
   return (
     <>
-      <h1>ALL POSTS</h1>
       <section>
         {posts.map((post) => {
           return (
             <div
               key={`post-${post._id}`}
               className={clsx(
-                "flex flex-col items-center border border-yellow-500"
+                "bg-white",
+                "flex",
+                "flex-col",
+                "items-center",
+                "border",
+                "border-black/20",
+                "rounded-lg",
+                "m-5"
               )}
             >
               <figure>
@@ -43,13 +51,12 @@ export default function PostCard() {
                 </div>
 
                 <div className="pl-10">
-                  <a
-                    className="text-3xl text-[#171717] font-bold"
-                    href="/viewPost"
+                  <Link
+                    className={clsx("text-3xl text-[#171717] font-bold")}
+                    to={`/viewPost/${post._id}`}
                   >
                     {post.title}
-                  </a>
-                  <Link to={`/viewPost/${post._id}`}>{post.title}</Link>
+                  </Link>
                   <div className="pt-2 flex">
                     <a
                       href=""
@@ -111,11 +118,7 @@ export default function PostCard() {
                     </div>
                     <div className="flex place-items-center m-1 p-1 hover:border hover:rounded-md hover:text-[#171717] hover:bg-[#f3f3f3]  text-sm text-[#7b7b7b]">
                       <a className="p-1 ">
-                        <img
-                          className="w-5"
-                          src="src/assets/icons8-comment.svg"
-                          alt="comments"
-                        />
+                        <img className="w-5" src={commentIcon} alt="comments" />
                       </a>
                       <span className="block align-middle text-[#404040] p-1 text-sm">
                         6 Comments
@@ -126,11 +129,7 @@ export default function PostCard() {
                         {post.timeToRead}
                       </span>
                       <a className="hover:bg-[#e3e0f4] p-1 hover:rounded-lg cursor-pointer">
-                        <img
-                          className="w-6"
-                          src="src/assets/icons8-bookmark.svg"
-                          alt="bookmark"
-                        />
+                        <img className="w-6" src={bookMark} alt="bookmark" />
                       </a>
                     </div>
                   </div>

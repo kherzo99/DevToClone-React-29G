@@ -4,7 +4,15 @@ import unicon from "/src/assets/apple.svg";
 export default function AsideCard1() {
   return (
     <>
-      <div className={clsx("bg-[#f5f5f5]", "flex", "flex-col", "w-full")}>
+      <div
+        className={clsx(
+          "bg-[#f5f5f5]",
+          "flex",
+          "flex-col",
+          "w-full",
+          "rounded-md"
+        )}
+      >
         <div
           className={clsx(
             "flex",
