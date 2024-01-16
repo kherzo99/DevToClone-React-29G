@@ -47,7 +47,8 @@ export default function NewUserEmail() {
             "justify-center",
             "items-center",
             "gap-3",
-            "pt-10"
+            "pt-10",
+            "bg-white"
           )}
         >
           <img
@@ -62,7 +63,9 @@ export default function NewUserEmail() {
         </div>
       </main>
 
-      <div className={clsx("flex justify-center", "pt-10", "pb-10")}>
+      <div
+        className={clsx("flex justify-center", "pt-10", "pb-10", "bg-white")}
+      >
         <form
           onSubmit={handleSubmit(onSubmit)}
           className={clsx(
