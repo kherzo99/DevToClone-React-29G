@@ -86,12 +86,6 @@ const Navbar = () => {
         >
           Create Account
         </button>
-
-        <div
-          className={clsx(
-            "hover:bg-[#35343C] w-7 hover:rounded-md grid justify-items-center"
-          )}
-        ></div>
       </div>
     </nav>
   );

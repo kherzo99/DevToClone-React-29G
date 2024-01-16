@@ -16,7 +16,8 @@ export default function Createuser() {
           "bg-white",
           "text-black",
           "flex flex-col",
-          "justify-center, items-center"
+          "justify-center, items-center",
+          "p-28"
         )}
       >
         <div
@@ -25,7 +26,8 @@ export default function Createuser() {
             "justify-center",
             "items-center",
             "gap-3",
-            "pt-10"
+            "pt-10",
+            "bg-white"
           )}
         >
           <img
