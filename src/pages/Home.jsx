@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
 import AsideCard1 from "../components/asideCard1";
 import RightSectionCard from "../components/RightSectionCard";
+import UserTest from "../components/userTest";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
             <AsideCard1 />
           </aside>
           <section className={clsx("col-span-7")}>
+            <UserTest></UserTest>
             <PostCard />
           </section>
           <section className={clsx("col-span-3")}>
