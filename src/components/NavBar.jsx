@@ -4,6 +4,8 @@ import devToLogo from "/src/assets/devTologo.png";
 import searchLogo from "/src/assets/busqueda.svg";
 import bellIcon from "/src/assets/campana.svg";
 import { useNavigate } from "react-router-dom";
+import UserInfo from "./LoggedUser";
+// import LoggedUser from "/src/components/LoggedUser.jsx";
 
 export default function NavBar() {
   const [token, setToken] = useState([]);
@@ -13,7 +15,7 @@ export default function NavBar() {
     setToken(storedToken);
   }, []);
 
-  return <div className="">{!token ? <Navbar /> : <NavBarwUser />}</div>;
+  return <div className="">{token ? <NavBarwUser /> : <Navbar />}</div>;
 }
 
 const Navbar = () => {
@@ -92,17 +94,7 @@ const Navbar = () => {
 };
 
 const NavBarwUser = () => {
-  // const [user, setUser] = useState({});
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:3001/users/${user}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setUser(data.data);
-  //       console.log("esta es la data de users", data.data);
-  //     });
-  // }, [user]);
 
   return (
     <nav
@@ -166,11 +158,7 @@ const NavBarwUser = () => {
           />
         </div>
         <div className={clsx("grid", "justify-items-center")}>
-          <img
-            className={clsx("w-6", "hover:bg-[#391fb9]", "rounded-full")}
-            src=""
-            alt="userImg"
-          />
+          <UserInfo />
         </div>
       </div>
     </nav>

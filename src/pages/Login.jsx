@@ -26,6 +26,9 @@ export default function Login() {
 
     const responseData = await response.json();
     if (responseData?.token) {
+      localStorage.setItem("userImg", responseData.userImg);
+      localStorage.setItem("userName", responseData.name);
+      localStorage.setItem("userLastName", responseData.lastName);
       localStorage.setItem("token", responseData.token);
       navigate("/");
     } else {
