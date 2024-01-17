@@ -51,11 +51,13 @@ export default function NewUserEmail() {
             "bg-white"
           )}
         >
-          <img
-            className={clsx("w-16")}
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
-            alt="DevLogo"
-          />
+          <a href="/">
+            <img
+              className={clsx("w-16")}
+              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
+              alt="DevLogo"
+            />
+          </a>
           <h1 className={clsx("text-3xl font-bold")}>Join the DEV Community</h1>
           <p className={clsx("text-black/60")}>
             DEV Community is a community of 1,231,240 amazing developers

@@ -21,7 +21,7 @@ export default function UserInfo() {
       {isMenuOpen && (
         <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-300 shadow-lg rounded">
           <ul>
-            <li className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
+            <li className="py-2 px-4">
               {`${userName}`} {`${userLastName}`}
             </li>
             <li className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
