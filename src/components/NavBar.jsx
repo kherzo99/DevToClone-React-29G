@@ -32,7 +32,13 @@ const Navbar = () => {
       )}
     >
       <div className={clsx("flex")}>
-        <img className={clsx("w-13", "h-9")} src={devToLogo} alt="devTo-logo" />
+        <a href="/">
+          <img
+            className={clsx("w-13", "h-9")}
+            src={devToLogo}
+            alt="devTo-logo"
+          />
+        </a>
       </div>
 
       <div
@@ -109,7 +115,13 @@ const NavBarwUser = () => {
       )}
     >
       <div className={clsx("flex")}>
-        <img className={clsx("w-13", "h-9")} src={devToLogo} alt="devTo-logo" />
+        <a href="/">
+          <img
+            className={clsx("w-13", "h-9")}
+            src={devToLogo}
+            alt="devTo-logo"
+          />
+        </a>
       </div>
 
       <div

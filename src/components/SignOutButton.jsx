@@ -5,5 +5,19 @@ export default function SignOutButton() {
     localStorage.removeItem("userLastName");
     localStorage.removeItem("userImg");
   };
-  return <button onClick={() => singOut()}>Sign Out</button>;
+
+  const handleReload = () => {
+    window.location.reload();
+  };
+
+  return (
+    <button
+      onClick={() => {
+        singOut();
+        handleReload();
+      }}
+    >
+      Sign Out
+    </button>
+  );
 }
