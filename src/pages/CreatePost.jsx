@@ -2,6 +2,18 @@ import { useForm } from "react-hook-form";
 import { clsx } from "clsx";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import xIcon from "/src/assets/x.svg";
+import bIcon from "/src/assets/b.svg";
+import yIcon from "/src/assets/yo.svg";
+import linkIcon from "/src/assets/enlace.png";
+import numberListIcon from "/src/assets/lista-de-numeros.png";
+import listIcon from "/src/assets/menu.png";
+import hIcon from "/src/assets/h.png";
+import quoteIcon from "/src/assets/cotizar.png";
+import codeIcon from "/src/assets/codificacion.png";
+import codeIcon2 from "/src/assets/programacion.png";
+import embedIcon from "/src/assets/perno-de-luz.png";
+import pictureIcon from "/src/assets/foto.png";
 
 export default function CreatePost() {
   const [showImgInput, setShowImgInput] = useState(false);
@@ -28,7 +40,7 @@ export default function CreatePost() {
   const navigate = useNavigate();
 
   const userName = localStorage.getItem("userName");
-  // const userLastName = localStorage.getItem("userLastName");
+  const userLastName = localStorage.getItem("userLastName");
   const userProfImg = localStorage.getItem("userImg");
 
   async function onSubmit(data) {
@@ -45,7 +57,7 @@ export default function CreatePost() {
         timeToRead: data.timeToRead,
         title: data.title,
         userImg: userProfImg,
-        userName: userName,
+        userName: userName + " " + userLastName,
       }),
       headers: { "Content-Type": "application/json" },
     });
@@ -61,8 +73,8 @@ export default function CreatePost() {
 
   return (
     <>
-      <main className={clsx("bg-white w-full")}>
-        <div className={clsx("bg-[#f5f5f5] m-0 flex justify-around p-2")}>
+      <main className={clsx("w-full")}>
+        <div className={clsx("flex", "justify-between", "m-2")}>
           <div className={clsx("flex")}>
             <div className={clsx("flex")}>
               <a href="/">
@@ -75,13 +87,46 @@ export default function CreatePost() {
               <p className={clsx("pl-3 text-[#404040] pt-3")}>Create a post</p>
             </div>
           </div>
-          <div className={clsx("flex")}>
-            <p className="">Edit</p>
-            <p>Preview</p>
+          <div className={clsx("flex ")}>
+            <p
+              className={clsx(
+                "px-4",
+                "py-2",
+                "rounded",
+                "text-neutral-500",
+                "hover:bg-indigo-600/10",
+                "hover:text-indigo-600"
+              )}
+            >
+              Edit
+            </p>
+            <p
+              className={clsx(
+                "px-4",
+                "py-2",
+                "rounded",
+                "text-neutral-500",
+                "hover:bg-indigo-600/10",
+                "hover:text-indigo-600"
+              )}
+            >
+              Preview
+            </p>
           </div>
-          <div>
-            <p>X icon</p>
-          </div>
+
+          <a
+            className={clsx(
+              "px-4",
+              "py-2",
+              "rounded",
+              "text-neutral-500",
+              "hover:bg-indigo-600/10",
+              "hover:text-indigo-600"
+            )}
+            href="/"
+          >
+            <img className={clsx("w-5")} src={xIcon} alt="" />
+          </a>
         </div>
         <div className={clsx("grid grid-cols-5 m-10 ")}>
           <div className={clsx("grid col-span-3")}>
@@ -239,117 +284,73 @@ export default function CreatePost() {
                   />
                 </div>
 
-                <div className="flex items-center justify-between h-10 px-6 -m-6  text-4xl bg-neutral-300/20">
-                  <div className="flex">
+                <div className="flex items-center justify-between h-10 px-6 -m-6 text-4xl bg-neutral-300/20 w-full">
+                  <div className="flex gap-2">
                     <a
                       href=""
-                      className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
+                      className="p-1 hover:bg-[#010102] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-b-24.png"
-                        alt="bold"
-                      />
+                      <img className="w-6" src={bIcon} alt="bold" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-italic-24.png"
-                        alt="italic"
-                      />
+                      <img className="w-6" src={yIcon} alt="italic" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-clip-24.png"
-                        alt="file"
-                      />
+                      <img className="w-6" src={linkIcon} alt="file" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-list-24.png"
-                        alt="list"
-                      />
+                      <img className="w-6" src={numberListIcon} alt="list" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-list-24 (1).png"
-                        alt="pointslist"
-                      />
+                      <img className="w-6" src={listIcon} alt="pointslist" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-h-24.png"
-                        alt="H"
-                      />
+                      <img className="w-6" src={hIcon} alt="H" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-quote-24.png"
-                        alt="quote"
-                      />
+                      <img className="w-8" src={quoteIcon} alt="quote" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-code-24.png"
-                        alt="code"
-                      />
+                      <img className="w-6" src={codeIcon} alt="code" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-code-24 (1).png"
-                        alt="codeblock"
-                      />
+                      <img className="w-6" src={codeIcon2} alt="codeblock" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-flash-24.png"
-                        alt="embed"
-                      />
+                      <img className="w-6" src={embedIcon} alt="embed" />
                     </a>
                     <a
                       href=""
                       className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
-                      <img
-                        className="w-6"
-                        src="src/assets/icons8-img-24.png"
-                        alt="uploadimg"
-                      />
+                      <img className="w-6" src={pictureIcon} alt="uploadimg" />
                     </a>
                   </div>
                   <div>
@@ -426,7 +427,11 @@ export default function CreatePost() {
                     value="Publish"
                     className="px-4 py-2 text-white bg-indigo-600 rounded hover:bg-indigo-600/90"
                   />
-                  <button className="px-4 py-2 rounded text-neutral-500 hover:bg-indigo-600/10 hover:text-indigo-600">
+                  <button
+                    className={clsx(
+                      "px-4 py-2 rounded text-neutral-500 hover:bg-indigo-600/10 hover:text-indigo-600"
+                    )}
+                  >
                     Save draft
                   </button>
 
@@ -438,7 +443,7 @@ export default function CreatePost() {
             </div>
           </div>
           <div className="grid col-span-2 ">
-            <article className="flex gap-5">
+            <article className="flex gap-5 px-8">
               {showCard1 && (
                 <div className="absolute w-72 top-[5rem]">
                   <h2 className="font-bold text-[#404040]">
