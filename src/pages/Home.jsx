@@ -14,6 +14,17 @@ export default function Home() {
             <AsideCard1 />
           </aside>
           <section className={clsx("col-span-7")}>
+            <div className="text-lg m-1">
+              <button className="p-3  hover:bg-white hover:rounded-lg hover:text-[#4925e8] text-black font-bold">
+                Relevant
+              </button>
+              <button className="p-3  hover:bg-white hover:rounded-lg hover:text-[#4925e8] text-[#404040]">
+                Latest
+              </button>
+              <button className="p-3  hover:bg-white hover:rounded-lg hover:text-[#4925e8] text-[#404040]">
+                Top
+              </button>
+            </div>
             <PostCard />
           </section>
           <section className={clsx("col-span-3")}>
