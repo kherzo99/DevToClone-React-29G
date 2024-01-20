@@ -59,14 +59,14 @@ const Navbar = () => {
           <img className={clsx("w-10")} src={searchLogo} alt="" />
         </button>
       </div>
-      <div className={clsx("flex")}>
+      <div className={clsx("flex", "gap-3")}>
         <button
           onClick={() => {
             navigate("/login");
           }}
           className={clsx(
             "px-2",
-            "m-1",
+            "p-1",
             "hover:bg-[#ece9fd]",
             "rounded-md",
             "text-black/60",
@@ -82,7 +82,7 @@ const Navbar = () => {
           }}
           className={clsx(
             "px-2",
-            "m-1",
+            "p-1",
             "border border-[#391fb9]",
             "text-[#391fb9]",
             "hover:bg-[#391fb9]",
@@ -149,7 +149,7 @@ const NavBarwUser = () => {
           }}
           className={clsx(
             "px-2",
-            "m-1",
+            "p-1",
             "border border-[#391fb9]",
             "text-[#391fb9]",
             "hover:bg-[#391fb9]",
