@@ -1,8 +1,13 @@
-# React + Vite
+DEVTO Clone.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this repository you can find my DevTo page clone for my React final challenge. 🔹
 
-Currently, two official plugins are available:
+How do I make this example mine?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To see how tha application works fisrt we need to follow some steps.
+
+1. Fork this repository on your local.
+2. Go to the 29G-DevToClone-React file.
+3. Once on the file, follow the instalation steps.
+
+Installation.
