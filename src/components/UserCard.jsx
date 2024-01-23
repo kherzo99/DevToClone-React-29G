@@ -27,7 +27,14 @@ export default function UserCard() {
           "mt-5"
         )}
       >
-        <div className={clsx("bg-[#2900ae]", "text-[#2900ae]", "", "h-8")}>
+        <div
+          className={clsx(
+            "bg-[#2900ae]",
+            "text-[#2900ae]",
+            "rounded-t-md",
+            "h-8"
+          )}
+        >
           ______________
         </div>
         <img

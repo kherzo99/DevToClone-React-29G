@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 export default function NewUserEmail() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -25,9 +25,10 @@ export default function NewUserEmail() {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      alert("User created succesfully!");
+      navigate("/");
     } else {
       alert("User not created, try again.");
+      console.log(response);
     }
   }
   // setError("root", { message: "Invalid Data" });

@@ -64,7 +64,6 @@ export default function CreatePost() {
     let dataTest = await response.json();
     console.log("data", dataTest.data);
     if (response.ok) {
-      alert("Post created! (:");
       navigate("/");
     } else {
       alert("Something went wrong ):");
@@ -288,7 +287,7 @@ export default function CreatePost() {
                   <div className="flex gap-2">
                     <a
                       href=""
-                      className="p-1 hover:bg-[#010102] hover:rounded-lg cursor-pointer"
+                      className="p-1 hover:bg-[#e3e0f4] hover:rounded-lg cursor-pointer"
                     >
                       <img className="w-6" src={bIcon} alt="bold" />
                     </a>
